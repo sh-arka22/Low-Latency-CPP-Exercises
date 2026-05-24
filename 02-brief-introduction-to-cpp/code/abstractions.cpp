@@ -35,7 +35,7 @@ int num_hamlet(string_elem_t* books) {
 }
 
 // ---- C++ version --------------------------------------------------------
-auto num_hamlet(const std::forward_list<std::string>& books) {
+auto num_hamlet(const std::vector<std::string>& books) {
     return std::count(books.begin(), books.end(), "Hamlet");
 }
 
@@ -51,7 +51,7 @@ TEST(Abstractions, NumHamlet_CVersion) {
 }
 
 TEST(Abstractions, NumHamlet_CppVersion) {
-    auto books = std::forward_list<std::string>{
+    auto books = std::vector<std::string>{
         "Hamlet", "Romeo and Juliet", "Hamlet"
     };
     EXPECT_EQ(num_hamlet(books), 2);
