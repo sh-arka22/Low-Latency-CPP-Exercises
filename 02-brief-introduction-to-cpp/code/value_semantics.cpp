@@ -48,3 +48,5 @@ TEST(ValueSemantics, BagelDoesNotAliasOriginalSet) {
 // remove the std::move. Show that the behaviour is identical, then argue why
 // the by-value+move version is strictly better when the callee STORES the
 // argument (the "sink" idiom — see Meyers EMC++ item 41).
+
+

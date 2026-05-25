@@ -20,6 +20,12 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 add_compile_options(-Wall -Wextra -Wpedantic)
 
+# Prefer Homebrew's googletest (libc++ ABI, matches Apple clang) over any
+# miniconda GTestConfig.cmake that may be earlier on CMAKE_PREFIX_PATH and
+# was built against libstdc++ → would link-fail with undefined symbols.
+if(APPLE AND EXISTS "/usr/local/lib/cmake/GTest/GTestConfig.cmake")
+    set(GTest_DIR "/usr/local/lib/cmake/GTest")
+endif()
 find_package(GTest REQUIRED)
 
 file(GLOB CHAPTER_SRC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
