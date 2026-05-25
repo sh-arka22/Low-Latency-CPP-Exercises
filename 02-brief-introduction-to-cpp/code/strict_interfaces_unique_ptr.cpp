@@ -57,7 +57,7 @@ public:
     // 2. Ownership is transferred from the caller to this Boat
     // 3. When this Boat is destroyed, it automatically deletes the Engine
     Boat(std::unique_ptr<Engine> e, float l)
-        : engine_{std::move(e)}, length_{l} {
+        : engine_{std::exchange(e, nullptr)}, length_{l} {
         // Memory state after construction:
         // - engine_: points to Engine on heap
         // - length_: 100.0
