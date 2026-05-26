@@ -22,3 +22,13 @@ Thumbs.db
 
 # Compiled binaries
 bin/
+*.dSYM/
+
+# Clangd
+.clangd
+
+# Compiled binaries without extension (in code dirs)
+**/code/01_big_o
+**/code/02_amortized
+**/code/amortized
+**/code/big_o
